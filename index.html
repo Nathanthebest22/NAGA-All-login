@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth0 Login</title>
+    <script src="https://cdn.auth0.com/js/auth0/9.13/auth0.min.js"></script>
+</head>
+<body>
+    <h1>Connexion</h1>
+    <button id="login">Se connecter</button>
+
+    <script>
+        // Initialisation d'Auth0
+        var webAuth = new auth0.WebAuth({
+            domain: dev-xjm7nuqby3a5l2jk.eu.auth0.com,
+            clientID: TS7SmYRYF4cvgaEPRytLbbAM2DZN2Nxv,
+            redirectUri: https://sites.google.com/view/NAGA-All, // URL de redirection après connexion
+            responseType: 'token id_token',
+            scope: 'openid profile email'
+        });
+
+        // Fonction de connexion
+        document.getElementById('login').addEventListener('click', function() {
+            webAuth.authorize();
+        });
+    </script>
+</body>
+</html>
